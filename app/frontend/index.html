@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>AI Inbox</title>
+    <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+
+<body>
+    <main class="page">
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-glow"></div>
+
+            <div class="eyebrow">
+                ✦ Intelligent Email Assistant
+            </div>
+
+            <h1>AI Inbox</h1>
+
+            <p>
+                Receive, analyze, prioritize, and understand your emails
+                with an AI-powered workflow.
+            </p>
+        </section>
+
+
+        <!-- Compose Email -->
+        <section class="card compose-card">
+            <div class="card-header">
+                <div class="icon-box email-icon">✉</div>
+
+                <div class="card-title">
+                    <h2>New Email</h2>
+                    <p>Add an email to your inbox</p>
+                </div>
+            </div>
+
+            <form id="email-form" class="compose-form">
+                <div class="field">
+                    <label for="subject">Subject</label>
+
+                    <input
+                        id="subject"
+                        name="subject"
+                        type="text"
+                        placeholder="Payment reminder for invoice INV-1001"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="body">Email Body</label>
+
+                    <textarea
+                        id="body"
+                        name="body"
+                        rows="6"
+                        placeholder="Write the email content..."
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-footer">
+                    <span id="form-status" class="form-status"></span>
+
+                    <button
+                        id="save-email-btn"
+                        class="primary-btn"
+                        type="submit"
+                    >
+                        <span>＋</span>
+                        Save Email
+                    </button>
+                </div>
+            </form>
+        </section>
+
+
+        <!-- Inbox -->
+        <section class="inbox-layout">
+
+            <!-- Email List -->
+            <section class="card inbox-card">
+                <div class="card-header">
+                    <div class="icon-box inbox-icon">▤</div>
+
+                    <div class="card-title">
+                        <h2>Inbox</h2>
+                        <p id="inbox-count">0 emails</p>
+                    </div>
+
+                    <button
+                        id="refresh-btn"
+                        class="icon-btn"
+                        type="button"
+                        title="Refresh inbox"
+                    >
+                        ↻
+                    </button>
+                </div>
+
+                <div id="email-list" class="email-list">
+                    <div class="list-empty">
+                        <div class="empty-icon">✉</div>
+                        <h3>No emails yet</h3>
+                        <p>Add your first email above.</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Selected Email -->
+            <section class="card selected-card">
+                <div class="card-header">
+                    <div class="icon-box selected-icon">◉</div>
+
+                    <div class="card-title">
+                        <h2>Selected Email</h2>
+                        <p>Review and analyze the selected message</p>
+                    </div>
+                </div>
+
+                <div id="selected-email" class="selected-email">
+                    <div class="selection-empty">
+                        <div class="empty-icon">⌁</div>
+                        <h3>Select an email</h3>
+                        <p>
+                            Choose an email from your inbox to inspect it
+                            and run AI analysis.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
+
+        <!-- AI Analysis -->
+        <section class="card stream-card">
+            <div class="card-header">
+                <div class="icon-box ai-icon">✦</div>
+
+                <div class="card-title">
+                    <h2>AI Analysis</h2>
+                    <p>Structured analysis powered by the LLM</p>
+                </div>
+            </div>
+
+            <div id="stream" class="stream">
+                <div id="stream-content" class="stream-content">
+                    <div class="stream-symbol">✦</div>
+
+                    <h3 class="stream-title">
+                        Waiting for an email
+                    </h3>
+
+                    <p class="stream-description">
+                        Select an email from your inbox and click
+                        <strong>Analyze Email</strong>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Evaluation -->
+        <section class="card evaluation-card">
+
+            <div class="card-header">
+                <div class="icon-box evaluation-icon">▥</div>
+
+                <div class="card-title">
+                    <h2>Evaluation Dashboard</h2>
+                    <p>
+                        Compare prompt quality, accuracy, performance,
+                        and model economics.
+                    </p>
+                </div>
+            </div>
+
+            <div class="evaluation-actions">
+                <button
+                    id="run-evaluation-btn"
+                    class="evaluation-btn"
+                    type="button"
+                >
+                    ▶ Run Evaluation
+                </button>
+
+                <button
+                    id="load-evaluation-btn"
+                    class="secondary-btn"
+                    type="button"
+                >
+                    ↻ Load Results
+                </button>
+
+                <span
+                    id="evaluation-status"
+                    class="evaluation-status"
+                ></span>
+            </div>
+
+            <div
+                id="evaluation-output"
+                class="evaluation-output"
+            >
+                <div class="evaluation-empty">
+                    <div class="empty-icon">▥</div>
+
+                    <h3>No evaluation runs found</h3>
+
+                    <p>
+                        Run an evaluation to compare Prompt V1 and V2.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="/frontend/app.js"></script>
+</body>
+</html>
+
